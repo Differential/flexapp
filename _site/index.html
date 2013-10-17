@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>accounts-entry | Differential</title>
-    <meta name="description" content="A meteorite package for meteor sign up and sign in pages.">
+    <title>flexapp | Differential</title>
+    <meta name="description" content="Free mobile app website template">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -12,7 +12,7 @@
     <script>
       $(
         $.get(
-          'https://api.github.com/repos/bedifferential/accounts-entry/contributors',
+          'https://api.github.com/repos/bedifferential/flexapp/contributors',
           function(data) {
             _.each(
               _.first(data, 40),
@@ -56,12 +56,12 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <h1>accounts-entry</h1>
-        <p class="lead">A meteorite package for meteor sign up and sign in pages.</p>
-        <div class="version">0.3.0</div>
-        <a href="http://github.com/BeDifferential/accounts-entry" class="bttn bttnBlue"><i class="icon-github"></i> View on Github</a>
+        <h1>flexapp</h1>
+        <p class="lead">Free mobile app website template</p>
+        <div class="version">1.0</div>
+        <a href="http://github.com/BeDifferential/flexapp" class="bttn bttnBlue"><i class="icon-github"></i> View on Github</a>
 
-        <a href="https://github.com/BeDifferential/accounts-entry/archive/master.zip" class="bttn bttnOrange"><i class="icon-download"></i> Download Zip (0.3.0)</a>
+        <a href="https://github.com/BeDifferential/flexapp/archive/master.zip" class="bttn bttnOrange"><i class="icon-download"></i> Download Zip (1.0)</a>
       </div>
       <div class="col-md-4 hidden-xs hidden-sm">
         <h3>Contributors</h3>
@@ -81,76 +81,39 @@
           </ul>
         </div>
         <div class="col-md-9">
-          <h1>accounts-entry</h1>
+          <h1>Flexapp</h1>
 
-<p>A meteorite package that relies on Iron Router and gives you sign page login styles.</p>
+<p>FlexApp is a fully responsive HTML/CSS template perfect for marketing your mobile application. The template utilizes responsive CSS3 &amp; jQuery technology to provide a consistent and enjoyable viewing experience across any device.</p>
 
-<p>We wanted something to work with that used <a href="https://github.com/EventedMind/iron-router">Iron
-Router</a>, <a href="https://github.com/mangasocial/meteor-bootstrap-3">Bootstrap
-3</a>, and didn&#39;t require the forcing of the dropdown box that didn&#39;t seem to be easily styled. But we love the ease of adding more packages like accounts-facebook or accounts-twitter, so we fully support the oauth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  Right now it also assumes you will be using accounts-password, but we will likely make that optional in the future.</p>
+<p>FlexApp is 100% free to use. You may change, edit or modify the template however you wish, for free or commercial projects.</p>
 
-<p><a href="https://github.com/BeDifferential/accounts-entry/blob/master/CHANGELOG.md">Changelog</a></p>
+<h2>Installation</h2>
 
-<h2>Getting started</h2>
+<p>FlexApp is a simple HTML/CSS template. Simply extract the files into the web directory you want the template hosted at.</p>
 
-<p>Run:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">mrt add accounts-ui
-mrt add accounts-entry
-</code></pre></div>
-<p>You need to have <code>accounts-ui</code> package, as we depend on aspects of it.</p>
+<h2>Editing &amp; Customization</h2>
 
-<h2>Provided routes</h2>
+<p>You should have a basic understanding of HTML and CSS to edit and customize this template.</p>
 
-<p>You will get routes for:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/sign-in
-/sign-out
-/sign-up
-/forgot-password
-</code></pre></div>
-<p>You can then either add links to those directly, or use the <code>{{accountButtons}}</code> helper we provide to give you the proper links.</p>
+<h4>Content</h4>
 
-<h2>Setting up oauth/social integrations</h2>
+<p>All content should be edited/replaced in the index.html file.</p>
 
-<p>Use <code>accounts-ui</code> to configure your social/oauth integrations (or manually create records in your database, if you have those skills). We don&#39;t have the nice instructions on how to configure the services built into this package.</p>
+<h4>Styles &amp; Colors</h4>
 
-<h2>Configuration</h2>
+<p>There are several CSS stylesheets included. Most styles should be customized in &quot;styles.css&quot;.</p>
 
-<p>Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui).</p>
+<h4>Screenshots</h4>
 
-<p>As such, the <code>passwordSignupFields</code> attributes from Accounts.ui.config is read by accounts-entry to determine what fields to show during sign up and sign in.</p>
+<p>To add screenshots simply upload the images to your &quot;img&quot; folder and then edit the links under the &quot;Screenshots&quot; section of the index.html file.</p>
 
-<div class="highlight"><pre><code class="coffeescript"><span class="nx">Meteor</span><span class="p">.</span><span class="nx">startup</span> <span class="nf">-&gt;</span>
-  <span class="nx">Accounts</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span>
-    <span class="nv">passwordSignupFields: </span><span class="s">&#39;EMAIL_ONLY&#39;</span>
-  <span class="p">)</span>
-</code></pre></div>
+<h4>Contact Form</h4>
 
-<p>Somewhere in your server code, call <code>AccountsEntry.config</code>
-with a hash of optional configuration:</p>
+<p>Setting up the contact form to work properly requires a bit of technical know-how. You&#39;ll need to specify an action attribute for the form element and provide your own server side implementation to handle the form values.</p>
 
-<div class="highlight"><pre><code class="coffeescript"><span class="nx">Meteor</span><span class="p">.</span><span class="nx">startup</span> <span class="nf">-&gt;</span>
-  <span class="nx">AccountsEntry</span><span class="p">.</span><span class="nx">config</span>
-    <span class="nv">logo: </span><span class="s">&#39;logo.png&#39;</span>
-    <span class="nv">signupCode: </span><span class="s">&#39;s3cr3t&#39;</span>
-    <span class="nv">privacyUrl: </span><span class="s">&#39;/privacy-policy&#39;</span>
-    <span class="nv">termsUrl: </span><span class="s">&#39;/terms-of-use&#39;</span>
-    <span class="nv">homeRoute: </span><span class="s">&#39;home&#39;</span>
-    <span class="nv">dashboardRoute: </span><span class="s">&#39;dashboard&#39;</span>
-    <span class="nv">profileRoute: </span><span class="s">&#39;profile&#39;</span>
-    <span class="nv">defaultProfile: </span>
-        <span class="nv">someDefault: </span><span class="s">&#39;default&#39;</span>
-</code></pre></div>
+<h2>License</h2>
 
-<p>The default configuration includes:</p>
-
-<div class="highlight"><pre><code class="coffeescript">  <span class="nv">wrapLinks: </span><span class="kc">true</span>
-  <span class="nv">homeRoute: </span><span class="s">&#39;home&#39;</span>
-  <span class="nv">dashboardRoute: </span><span class="s">&#39;dashboard&#39;</span>
-  <span class="nv">defaultProfile: </span><span class="p">{}</span>
-</code></pre></div>
-
-<p>You must provide a route for home (used when signing out) and
-dashboard (used after signing in).</p>
+<p>FlexApp is licensed under the CC by 3.0 License. You may use, edit and modify the template however you wish. Please attribute our work with a link. To view a copy of this license, visit <a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a></p>
 
         </div>
       </div>
