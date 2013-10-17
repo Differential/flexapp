@@ -9,6 +9,8 @@ desc: Free mobile app website template
 
 # Flexapp
 
+<img src="/images/flexapp-screenshot.png"/ style="width: 370px; padding: 0 0 50px 50px; float: right;">
+
 FlexApp is a fully responsive HTML/CSS template perfect for marketing your mobile application. The template utilizes responsive CSS3 & jQuery technology to provide a consistent and enjoyable viewing experience across any device.
 
 FlexApp is 100% free to use. You may change, edit or modify the template however you wish, for free or commercial projects.
