@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>accounts-entry | Differential</title>
+    <meta name="description" content="A meteorite package for meteor sign up and sign in pages.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script>
+      $(
+        $.get(
+          'https://api.github.com/repos/bedifferential/accounts-entry/contributors',
+          function(data) {
+            _.each(
+              _.first(data, 40),
+              function(contributor) {
+                $('ul.contributors').append('<li><a href="https://github.com/' + contributor.login  + '"><img src="' +  contributor.avatar_url + '"></a></li>')
+              }
+            )
+          }
+        )
+      );
+    </script>
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/global.css">
+  </head>
+  <body>
+
+    <header>
+  <div class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-brand">
+        <div class="navbar-admin-brand">
+          <a href="http://github.differential.io">
+            <img src="/images/logo-sq-orange-web.png">
+            OPEN SOURCE 
+          </a>
+        </div>
+      </div>
+      <ul class="nav navbar-nav pull-right hidden-xs">
+        <li><a href="http://differential.io">Learn about Differential</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<section class="billboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>accounts-entry</h1>
+        <p class="lead">A meteorite package for meteor sign up and sign in pages.</p>
+        <div class="version">0.3.0</div>
+        <a href="http://github.com/BeDifferential/accounts-entry" class="bttn bttnBlue"><i class="icon-github"></i> View on Github</a>
+
+        <a href="https://github.com/BeDifferential/accounts-entry/archive/master.zip" class="bttn bttnOrange"><i class="icon-download"></i> Download Zip (0.3.0)</a>
+      </div>
+      <div class="col-md-4 hidden-xs hidden-sm">
+        <h3>Contributors</h3>
+        <ul class="contributors"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <div class="main container">
+      <div class="row">
+        <div class="col-md-3">
+          <ul class="sidebar">
+            <li ><a href="/index.html">Documentation</a></li>
+            <li class="active"><a href="/changelog.html">Changelog</a></li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <h1>Changelog</h1>
+
+<h3>v0.3.0</h3>
+
+<ul>
+<li>Fix client side login to happen after we create the user server side <a href="https://github.com/BeDifferential/accounts-entry/issues/24">#24</a></li>
+<li>Fix an issue with event passing and Firefox/IE issues <a href="https://github.com/BeDifferential/accounts-entry/issues/23">#23</a></li>
+<li>Optionally protect signup form with a signup code</li>
+<li>Move configuration to server</li>
+<li>Configuration is set by calling a method rather than setting an
+attribute of AccountsEntry object</li>
+</ul>
+
+<h3>v0.2.10</h3>
+
+<ul>
+<li>Add a sign out route via iron router (/sign-out)</li>
+<li>Make signedInAs a global helper instead of just in the accountButtons template</li>
+</ul>
+
+<h3>v0.2.9</h3>
+
+<ul>
+<li>Return a string instead of true for the username on signup</li>
+</ul>
+
+<h3>v0.2.8</h3>
+
+<ul>
+<li>Fix css targetting for signout link changes</li>
+</ul>
+
+<h3>v0.2.7</h3>
+
+<ul>
+<li>Make Sign In header tag consistent with rest of package</li>
+</ul>
+
+<h3>v0.2.6</h3>
+
+<ul>
+<li>Move create account header outside of the if logic so you see the header no matter what your settings.</li>
+</ul>
+
+<h3>v0.2.5</h3>
+
+<ul>
+<li>Removed more differential naming from the package</li>
+</ul>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-xs-6">
+            <h4>Differential</h4>
+            <ul class="footer-col-menu">
+              <li><a href="http://differential.io">Home</a></li>
+              <li><a href="http://differential.io/about">About</a></li>
+              <li><a href="http://differential.io/team">Team</a></li>
+              <li><a href="http://differential.io/blog">Blog</a></li>
+              <li><a href="http://differential.io/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-6">
+            <h4>Connect</h4>
+            <ul class="footer-col-menu">
+              <li><a href="https://github.com/BeDifferential/">GitHub</a></li>
+              <li><a href="https://www.twitter.com/BeDifferential">Twitter</a></li>
+              <li><a href="https://www.facebook.com/ThinkDifferential">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-xs-6">
+          </div>
+          <div class="col-xs-6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>

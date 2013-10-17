@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>accounts-entry | Differential</title>
+    <meta name="description" content="A meteorite package for meteor sign up and sign in pages.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+    <script>
+      $(
+        $.get(
+          'https://api.github.com/repos/bedifferential/accounts-entry/contributors',
+          function(data) {
+            _.each(
+              _.first(data, 40),
+              function(contributor) {
+                $('ul.contributors').append('<li><a href="https://github.com/' + contributor.login  + '"><img src="' +  contributor.avatar_url + '"></a></li>')
+              }
+            )
+          }
+        )
+      );
+    </script>
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/global.css">
+  </head>
+  <body>
+
+    <header>
+  <div class="navbar navbar-inverse">
+    <div class="container">
+      <div class="navbar-brand">
+        <div class="navbar-admin-brand">
+          <a href="http://github.differential.io">
+            <img src="/images/logo-sq-orange-web.png">
+            OPEN SOURCE 
+          </a>
+        </div>
+      </div>
+      <ul class="nav navbar-nav pull-right hidden-xs">
+        <li><a href="http://differential.io">Learn about Differential</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<section class="billboard">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>accounts-entry</h1>
+        <p class="lead">A meteorite package for meteor sign up and sign in pages.</p>
+        <div class="version">0.3.0</div>
+        <a href="http://github.com/BeDifferential/accounts-entry" class="bttn bttnBlue"><i class="icon-github"></i> View on Github</a>
+
+        <a href="https://github.com/BeDifferential/accounts-entry/archive/master.zip" class="bttn bttnOrange"><i class="icon-download"></i> Download Zip (0.3.0)</a>
+      </div>
+      <div class="col-md-4 hidden-xs hidden-sm">
+        <h3>Contributors</h3>
+        <ul class="contributors"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <div class="main container">
+      <div class="row">
+        <div class="col-md-3">
+          <ul class="sidebar">
+            <li class="active"><a href="/index.html">Documentation</a></li>
+            <li ><a href="/changelog.html">Changelog</a></li>
+          </ul>
+        </div>
+        <div class="col-md-9">
+          <h1>accounts-entry</h1>
+
+<p>A meteorite package that relies on Iron Router and gives you sign page login styles.</p>
+
+<p>We wanted something to work with that used <a href="https://github.com/EventedMind/iron-router">Iron
+Router</a>, <a href="https://github.com/mangasocial/meteor-bootstrap-3">Bootstrap
+3</a>, and didn&#39;t require the forcing of the dropdown box that didn&#39;t seem to be easily styled. But we love the ease of adding more packages like accounts-facebook or accounts-twitter, so we fully support the oauth packages by adding buttons to let people sign-up/sign-in with those services if you add them.  Right now it also assumes you will be using accounts-password, but we will likely make that optional in the future.</p>
+
+<p><a href="https://github.com/BeDifferential/accounts-entry/blob/master/CHANGELOG.md">Changelog</a></p>
+
+<h2>Getting started</h2>
+
+<p>Run:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">mrt add accounts-ui
+mrt add accounts-entry
+</code></pre></div>
+<p>You need to have <code>accounts-ui</code> package, as we depend on aspects of it.</p>
+
+<h2>Provided routes</h2>
+
+<p>You will get routes for:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">/sign-in
+/sign-out
+/sign-up
+/forgot-password
+</code></pre></div>
+<p>You can then either add links to those directly, or use the <code>{{accountButtons}}</code> helper we provide to give you the proper links.</p>
+
+<h2>Setting up oauth/social integrations</h2>
+
+<p>Use <code>accounts-ui</code> to configure your social/oauth integrations (or manually create records in your database, if you have those skills). We don&#39;t have the nice instructions on how to configure the services built into this package.</p>
+
+<h2>Configuration</h2>
+
+<p>Since this is a young package, we are maintaining compatibility with accounts-ui (so if in a pinch accounts-entry is broken for you, you could easily switch to accounts-ui).</p>
+
+<p>As such, the <code>passwordSignupFields</code> attributes from Accounts.ui.config is read by accounts-entry to determine what fields to show during sign up and sign in.</p>
+
+<div class="highlight"><pre><code class="coffeescript"><span class="nx">Meteor</span><span class="p">.</span><span class="nx">startup</span> <span class="nf">-&gt;</span>
+  <span class="nx">Accounts</span><span class="p">.</span><span class="nx">ui</span><span class="p">.</span><span class="nx">config</span><span class="p">(</span>
+    <span class="nv">passwordSignupFields: </span><span class="s">&#39;EMAIL_ONLY&#39;</span>
+  <span class="p">)</span>
+</code></pre></div>
+
+<p>Somewhere in your server code, call <code>AccountsEntry.config</code>
+with a hash of optional configuration:</p>
+
+<div class="highlight"><pre><code class="coffeescript"><span class="nx">Meteor</span><span class="p">.</span><span class="nx">startup</span> <span class="nf">-&gt;</span>
+  <span class="nx">AccountsEntry</span><span class="p">.</span><span class="nx">config</span>
+    <span class="nv">logo: </span><span class="s">&#39;logo.png&#39;</span>
+    <span class="nv">signupCode: </span><span class="s">&#39;s3cr3t&#39;</span>
+    <span class="nv">privacyUrl: </span><span class="s">&#39;/privacy-policy&#39;</span>
+    <span class="nv">termsUrl: </span><span class="s">&#39;/terms-of-use&#39;</span>
+    <span class="nv">homeRoute: </span><span class="s">&#39;home&#39;</span>
+    <span class="nv">dashboardRoute: </span><span class="s">&#39;dashboard&#39;</span>
+    <span class="nv">profileRoute: </span><span class="s">&#39;profile&#39;</span>
+    <span class="nv">defaultProfile: </span>
+        <span class="nv">someDefault: </span><span class="s">&#39;default&#39;</span>
+</code></pre></div>
+
+<p>The default configuration includes:</p>
+
+<div class="highlight"><pre><code class="coffeescript">  <span class="nv">wrapLinks: </span><span class="kc">true</span>
+  <span class="nv">homeRoute: </span><span class="s">&#39;home&#39;</span>
+  <span class="nv">dashboardRoute: </span><span class="s">&#39;dashboard&#39;</span>
+  <span class="nv">defaultProfile: </span><span class="p">{}</span>
+</code></pre></div>
+
+<p>You must provide a route for home (used when signing out) and
+dashboard (used after signing in).</p>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-xs-6">
+            <h4>Differential</h4>
+            <ul class="footer-col-menu">
+              <li><a href="http://differential.io">Home</a></li>
+              <li><a href="http://differential.io/about">About</a></li>
+              <li><a href="http://differential.io/team">Team</a></li>
+              <li><a href="http://differential.io/blog">Blog</a></li>
+              <li><a href="http://differential.io/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-6">
+            <h4>Connect</h4>
+            <ul class="footer-col-menu">
+              <li><a href="https://github.com/BeDifferential/">GitHub</a></li>
+              <li><a href="https://www.twitter.com/BeDifferential">Twitter</a></li>
+              <li><a href="https://www.facebook.com/ThinkDifferential">Facebook</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-xs-6">
+          </div>
+          <div class="col-xs-6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+</html>
