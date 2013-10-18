@@ -1,4 +1,4 @@
 flexapp
 =======
 
-Free mobile app website template
+See our [documentation](http://github.differential.io/flexapp)
