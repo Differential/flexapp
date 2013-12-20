@@ -8,8 +8,7 @@ desc: Free mobile app website template
 ---
 
 <div class="alert alert-success">
-  <strong>Don't want to make your own website?</strong><br> 
-  Use <strong><a href="http://carp.io">Carp.io</a></strong> and get a beautiful, custom landing page for your mobile app in 5 minutes! No HTML/CSS required.<br><br>
+  <strong>Use Carp.io and get a beautiful, custom landing page for your mobile app in 5 minutes! No HTML/CSS required.</strong><br><br>
   <strong><a href="http://carp.io">Get started FREE today ></a></strong>
 </div>
 
