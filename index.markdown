@@ -1,6 +1,6 @@
 ---
 layout: default
-username: BeDifferential
+username: Differential
 repo: flexapp
 version: 1.0
 desc: Free mobile app website template
