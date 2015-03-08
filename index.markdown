@@ -7,11 +7,6 @@ desc: Free mobile app website template
 
 ---
 
-<div class="alert alert-success">
-  <strong>Use Carp.io and get a beautiful, custom landing page for your mobile app in 5 minutes! No HTML/CSS required.</strong><br><br>
-  <strong><a href="http://carp.io">Get started FREE today ></a></strong>
-</div>
-
 # Flexapp
 
 <img src="{{ site.baseurl}}/images/flexapp-screenshot.png"/ style="width: 370px; padding: 0 0 50px 50px; float: right;">
